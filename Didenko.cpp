@@ -1,4 +1,3 @@
-#include "Didenko.h"
 #include <iostream>
 #include <fstream>
 #include <ctime>
@@ -8,7 +7,6 @@
 #include <sstream>
 #include <Windows.h>
 
-using namespace std;
 using namespace std;
 using namespace std::chrono;
 
@@ -20,7 +18,7 @@ private:
 	string phone;
 	int roomNumber = 0;
 
-	static int lastID;//Ñòàòè÷íàÿ ïåðåìåííàÿ äëÿ òîãî ÷òîáû id áûëî óíèêàëüíûì
+	static int lastID;//Ã‘Ã²Ã Ã²Ã¨Ã·Ã­Ã Ã¿ Ã¯Ã¥Ã°Ã¥Ã¬Ã¥Ã­Ã­Ã Ã¿ Ã¤Ã«Ã¿ Ã²Ã®Ã£Ã® Ã·Ã²Ã®Ã¡Ã» id Ã¡Ã»Ã«Ã® Ã³Ã­Ã¨ÃªÃ Ã«Ã¼Ã­Ã»Ã¬
 public:
 	Guest() {}
 	Guest(string name, int age, string phone) :name(name), age(age), phone(phone), id(lastID++) {}
@@ -158,7 +156,7 @@ public:
 
 	void addGuest(Guest* guest) {
 		if (guests.size() >= beds) {
-			throw "Â êîìíàòå íåò ìåñòà";
+			throw "Ã‚ ÃªÃ®Ã¬Ã­Ã Ã²Ã¥ Ã­Ã¥Ã² Ã¬Ã¥Ã±Ã²Ã ";
 		}
 		guests.push_back(guest);
 		guest->setRoomNumber(number);
@@ -166,7 +164,7 @@ public:
 
 	void checkOutGuest() {
 		if (guests.size() < 0) {
-			throw "Â êîìíàòå íåò ãîñòåé";
+			throw "Ã‚ ÃªÃ®Ã¬Ã­Ã Ã²Ã¥ Ã­Ã¥Ã² Ã£Ã®Ã±Ã²Ã¥Ã©";
 		}
 		guests.clear();
 	}
@@ -250,7 +248,7 @@ public:
 
 	void addGuest(Guest* guest) {
 		if (guests.size() >= beds) {
-			throw "Â êîìíàòå íåò ìåñòà";
+			throw "Ã‚ ÃªÃ®Ã¬Ã­Ã Ã²Ã¥ Ã­Ã¥Ã² Ã¬Ã¥Ã±Ã²Ã ";
 		}
 		guests.push_back(guest);
 		guest->setRoomNumber(number);
@@ -258,7 +256,7 @@ public:
 
 	void checkOutGuest() {
 		if (guests.size() < 0) {
-			throw "Â êîìíàòå íåò ãîñòåé";
+			throw "Ã‚ ÃªÃ®Ã¬Ã­Ã Ã²Ã¥ Ã­Ã¥Ã² Ã£Ã®Ã±Ã²Ã¥Ã©";
 		}
 		guests.clear();
 	}
@@ -342,7 +340,7 @@ public:
 
 	void addGuest(Guest* guest) {
 		if (guests.size() >= beds) {
-			throw "Â êîìíàòå íåò ìåñòà";
+			throw "Ã‚ ÃªÃ®Ã¬Ã­Ã Ã²Ã¥ Ã­Ã¥Ã² Ã¬Ã¥Ã±Ã²Ã ";
 		}
 		guests.push_back(guest);
 		guest->setRoomNumber(number);
@@ -350,7 +348,7 @@ public:
 
 	void checkOutGuest() {
 		if (guests.size() < 0) {
-			throw "Â êîìíàòå íåò ãîñòåé";
+			throw "Ã‚ ÃªÃ®Ã¬Ã­Ã Ã²Ã¥ Ã­Ã¥Ã² Ã£Ã®Ã±Ã²Ã¥Ã©";
 		}
 		guests.clear();
 	}
@@ -434,7 +432,7 @@ public:
 
 	void addGuest(Guest* guest) {
 		if (guests.size() >= beds) {
-			throw "Â êîìíàòå íåò ìåñòà";
+			throw "Ã‚ ÃªÃ®Ã¬Ã­Ã Ã²Ã¥ Ã­Ã¥Ã² Ã¬Ã¥Ã±Ã²Ã ";
 		}
 		guests.push_back(guest);
 		guest->setRoomNumber(number);
@@ -442,7 +440,7 @@ public:
 
 	void checkOutGuest() {
 		if (guests.size() < 0) {
-			throw "Â êîìíàòå íåò ãîñòåé";
+			throw "Ã‚ ÃªÃ®Ã¬Ã­Ã Ã²Ã¥ Ã­Ã¥Ã² Ã£Ã®Ã±Ã²Ã¥Ã©";
 		}
 		guests.clear();
 	}
@@ -570,13 +568,13 @@ public:
 		}
 
 		else {
-			throw "Íåïðàâèëüíîå íàçâàíèå êîìíàòû";
+			throw "ÃÃ¥Ã¯Ã°Ã Ã¢Ã¨Ã«Ã¼Ã­Ã®Ã¥ Ã­Ã Ã§Ã¢Ã Ã­Ã¨Ã¥ ÃªÃ®Ã¬Ã­Ã Ã²Ã»";
 		}
 		rooms.push_back(room);
 		return room;
 	}
 
-	void addRoom(Room* room) {//Ïåðåãðóçêà ÷òîáû â ìàññèâ ìîæíî áûëî ïåðåäàâàòü îáúåêòû
+	void addRoom(Room* room) {//ÃÃ¥Ã°Ã¥Ã£Ã°Ã³Ã§ÃªÃ  Ã·Ã²Ã®Ã¡Ã» Ã¢ Ã¬Ã Ã±Ã±Ã¨Ã¢ Ã¬Ã®Ã¦Ã­Ã® Ã¡Ã»Ã«Ã® Ã¯Ã¥Ã°Ã¥Ã¤Ã Ã¢Ã Ã²Ã¼ Ã®Ã¡ÃºÃ¥ÃªÃ²Ã»
 		rooms.push_back(room);
 	}
 
@@ -586,13 +584,13 @@ public:
 		return newGuest;
 	}
 
-	void addGuest(Guest* guest) {//Ïåðåãðóçêà ÷òîáû â ìàññèâ ìîæíî áûëî ïåðåäàâàòü îáúåêòû
+	void addGuest(Guest* guest) {//ÃÃ¥Ã°Ã¥Ã£Ã°Ã³Ã§ÃªÃ  Ã·Ã²Ã®Ã¡Ã» Ã¢ Ã¬Ã Ã±Ã±Ã¨Ã¢ Ã¬Ã®Ã¦Ã­Ã® Ã¡Ã»Ã«Ã® Ã¯Ã¥Ã°Ã¥Ã¤Ã Ã¢Ã Ã²Ã¼ Ã®Ã¡ÃºÃ¥ÃªÃ²Ã»
 		guests.push_back(guest);
 	}
 
 	void addGuestToRoom(Guest* guest, Room* room) {
 		if (room->getSizeNow() <= 0) {
-			throw "Â êîìíàòå íå æèâåò âëàäåëåö!";
+			throw "Ã‚ ÃªÃ®Ã¬Ã­Ã Ã²Ã¥ Ã­Ã¥ Ã¦Ã¨Ã¢Ã¥Ã² Ã¢Ã«Ã Ã¤Ã¥Ã«Ã¥Ã¶!";
 		}
 		room->addGuest(guest);
 	}
@@ -628,7 +626,7 @@ public:
 };
 
 void menu() {
-	cout << "Äîáðî ïîæàëîâàòü â îòåëü: \n âûáåðèòå äåéñòâèå: \n 1 - äîáàâèòü ãîñòÿ \n 2 - äîáàâëåíèå êîìíàòû" << endl;
+	cout << "Ã„Ã®Ã¡Ã°Ã® Ã¯Ã®Ã¦Ã Ã«Ã®Ã¢Ã Ã²Ã¼ Ã¢ Ã®Ã²Ã¥Ã«Ã¼: \n Ã¢Ã»Ã¡Ã¥Ã°Ã¨Ã²Ã¥ Ã¤Ã¥Ã©Ã±Ã²Ã¢Ã¨Ã¥: \n 1 - Ã¤Ã®Ã¡Ã Ã¢Ã¨Ã²Ã¼ Ã£Ã®Ã±Ã²Ã¿ \n 2 - Ã¤Ã®Ã¡Ã Ã¢Ã«Ã¥Ã­Ã¨Ã¥ ÃªÃ®Ã¬Ã­Ã Ã²Ã»" << endl;
 	int result = 0;
 	cin >> result;
 	HotelManagement* h1 = new HotelManagement();
@@ -636,11 +634,11 @@ void menu() {
 		string name;
 		int age;
 		string phone;
-		cout << "Ââåäèòå èìÿ ãîñòÿ: " << endl;
+		cout << "Ã‚Ã¢Ã¥Ã¤Ã¨Ã²Ã¥ Ã¨Ã¬Ã¿ Ã£Ã®Ã±Ã²Ã¿: " << endl;
 		cin >> name;
-		cout << "Ââåäèòå âîçðàñò ãîñòÿ: " << endl;
+		cout << "Ã‚Ã¢Ã¥Ã¤Ã¨Ã²Ã¥ Ã¢Ã®Ã§Ã°Ã Ã±Ã² Ã£Ã®Ã±Ã²Ã¿: " << endl;
 		cin >> age;
-		cout << "Ââåäèòå íîìåð ãîñòÿ: " << endl;
+		cout << "Ã‚Ã¢Ã¥Ã¤Ã¨Ã²Ã¥ Ã­Ã®Ã¬Ã¥Ã° Ã£Ã®Ã±Ã²Ã¿: " << endl;
 		cin >> phone;
 		Guest* newGuest = new Guest(name, age, phone);
 		h1->addGuest(newGuest);
@@ -650,13 +648,13 @@ void menu() {
 		string title;
 		int beds;
 		int type;
-		cout << "Âûáåðèòå âèä êîìíàòû: \n 1 - Standart \n 2 - VIP \n 3 - Premium \n 4 - Lux" << endl;
+		cout << "Ã‚Ã»Ã¡Ã¥Ã°Ã¨Ã²Ã¥ Ã¢Ã¨Ã¤ ÃªÃ®Ã¬Ã­Ã Ã²Ã»: \n 1 - Standart \n 2 - VIP \n 3 - Premium \n 4 - Lux" << endl;
 		cin >> type;
-		cout << "Ââåäèòå íîìåð êîìíàòû: " << endl;
+		cout << "Ã‚Ã¢Ã¥Ã¤Ã¨Ã²Ã¥ Ã­Ã®Ã¬Ã¥Ã° ÃªÃ®Ã¬Ã­Ã Ã²Ã»: " << endl;
 		cin >> number;
-		cout << "Ââåäèòå íàçâàíèå êîìíàòû: " << endl;
+		cout << "Ã‚Ã¢Ã¥Ã¤Ã¨Ã²Ã¥ Ã­Ã Ã§Ã¢Ã Ã­Ã¨Ã¥ ÃªÃ®Ã¬Ã­Ã Ã²Ã»: " << endl;
 		cin >> title;
-		cout << "Ââåäèòå êðîâàòè â êîìíàòå: " << endl;
+		cout << "Ã‚Ã¢Ã¥Ã¤Ã¨Ã²Ã¥ ÃªÃ°Ã®Ã¢Ã Ã²Ã¨ Ã¢ ÃªÃ®Ã¬Ã­Ã Ã²Ã¥: " << endl;
 		cin >> beds;
 		if (type == 1) {
 			StandartRoom* r1 = new StandartRoom(number, beds, title);
@@ -675,11 +673,11 @@ void menu() {
 			h1->addRoom(r1);
 		}
 		else {
-			cout << "íåïðàâèëüíî âûáðàíî äåéñòâèå" << endl;
+			cout << "Ã­Ã¥Ã¯Ã°Ã Ã¢Ã¨Ã«Ã¼Ã­Ã® Ã¢Ã»Ã¡Ã°Ã Ã­Ã® Ã¤Ã¥Ã©Ã±Ã²Ã¢Ã¨Ã¥" << endl;
 		}
 	}
 	else {
-		cout << "íåïðàâèëüíî âûáðàíî äåéñòâèå" << endl;
+		cout << "Ã­Ã¥Ã¯Ã°Ã Ã¢Ã¨Ã«Ã¼Ã­Ã® Ã¢Ã»Ã¡Ã°Ã Ã­Ã® Ã¤Ã¥Ã©Ã±Ã²Ã¢Ã¨Ã¥" << endl;
 	}
 }
 
