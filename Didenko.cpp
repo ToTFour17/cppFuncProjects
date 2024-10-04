@@ -18,7 +18,7 @@ private:
 	string phone;
 	int roomNumber = 0;
 
-	static int lastID;//Ñòàòè÷íàÿ ïåðåìåííàÿ äëÿ òîãî ÷òîáû id áûëî óíèêàëüíûì
+	static int lastID;//Статичная переменная для того чтобы id было уникальным
 public:
 	Guest() {}
 	Guest(string name, int age, string phone) :name(name), age(age), phone(phone), id(lastID++) {}
@@ -156,7 +156,7 @@ public:
 
 	void addGuest(Guest* guest) {
 		if (guests.size() >= beds) {
-			throw "Â êîìíàòå íåò ìåñòà";
+			throw "В комнате нет места";
 		}
 		guests.push_back(guest);
 		guest->setRoomNumber(number);
@@ -164,7 +164,7 @@ public:
 
 	void checkOutGuest() {
 		if (guests.size() < 0) {
-			throw "Â êîìíàòå íåò ãîñòåé";
+			throw "В комнате нет гостей";
 		}
 		guests.clear();
 	}
@@ -248,7 +248,7 @@ public:
 
 	void addGuest(Guest* guest) {
 		if (guests.size() >= beds) {
-			throw "Â êîìíàòå íåò ìåñòà";
+			throw "В комнате нет места";
 		}
 		guests.push_back(guest);
 		guest->setRoomNumber(number);
@@ -256,7 +256,7 @@ public:
 
 	void checkOutGuest() {
 		if (guests.size() < 0) {
-			throw "Â êîìíàòå íåò ãîñòåé";
+			throw "В комнате нет гостей";
 		}
 		guests.clear();
 	}
@@ -340,7 +340,7 @@ public:
 
 	void addGuest(Guest* guest) {
 		if (guests.size() >= beds) {
-			throw "Â êîìíàòå íåò ìåñòà";
+			throw "В комнате нет места";
 		}
 		guests.push_back(guest);
 		guest->setRoomNumber(number);
@@ -348,7 +348,7 @@ public:
 
 	void checkOutGuest() {
 		if (guests.size() < 0) {
-			throw "Â êîìíàòå íåò ãîñòåé";
+			throw "В комнате нет гостей";
 		}
 		guests.clear();
 	}
@@ -432,7 +432,7 @@ public:
 
 	void addGuest(Guest* guest) {
 		if (guests.size() >= beds) {
-			throw "Â êîìíàòå íåò ìåñòà";
+			throw "В комнате нет места";
 		}
 		guests.push_back(guest);
 		guest->setRoomNumber(number);
@@ -440,7 +440,7 @@ public:
 
 	void checkOutGuest() {
 		if (guests.size() < 0) {
-			throw "Â êîìíàòå íåò ãîñòåé";
+			throw "В комнате нет гостей";
 		}
 		guests.clear();
 	}
@@ -568,13 +568,13 @@ public:
 		}
 
 		else {
-			throw "Íåïðàâèëüíîå íàçâàíèå êîìíàòû";
+			throw "Неправильное название комнаты";
 		}
 		rooms.push_back(room);
 		return room;
 	}
 
-	void addRoom(Room* room) {//Ïåðåãðóçêà ÷òîáû â ìàññèâ ìîæíî áûëî ïåðåäàâàòü îáúåêòû
+	void addRoom(Room* room) {//Перегрузка чтобы в массив можно было передавать объекты
 		rooms.push_back(room);
 	}
 
@@ -584,13 +584,13 @@ public:
 		return newGuest;
 	}
 
-	void addGuest(Guest* guest) {//Ïåðåãðóçêà ÷òîáû â ìàññèâ ìîæíî áûëî ïåðåäàâàòü îáúåêòû
+	void addGuest(Guest* guest) {//Перегрузка чтобы в массив можно было передавать объекты
 		guests.push_back(guest);
 	}
 
 	void addGuestToRoom(Guest* guest, Room* room) {
 		if (room->getSizeNow() <= 0) {
-			throw "Â êîìíàòå íå æèâåò âëàäåëåö!";
+			throw "В комнате не живет владелец!";
 		}
 		room->addGuest(guest);
 	}
@@ -626,7 +626,7 @@ public:
 };
 
 void menu() {
-	cout << "Äîáðî ïîæàëîâàòü â îòåëü: \n âûáåðèòå äåéñòâèå: \n 1 - äîáàâèòü ãîñòÿ \n 2 - äîáàâëåíèå êîìíàòû" << endl;
+	cout << "Добро пожаловать в отель: \n выберите действие: \n 1 - добавить гостя \n 2 - добавление комнаты" << endl;
 	int result = 0;
 	cin >> result;
 	HotelManagement* h1 = new HotelManagement();
@@ -634,11 +634,11 @@ void menu() {
 		string name;
 		int age;
 		string phone;
-		cout << "Ââåäèòå èìÿ ãîñòÿ: " << endl;
+		cout << "Введите имя гостя: " << endl;
 		cin >> name;
-		cout << "Ââåäèòå âîçðàñò ãîñòÿ: " << endl;
+		cout << "Введите возраст гостя: " << endl;
 		cin >> age;
-		cout << "Ââåäèòå íîìåð ãîñòÿ: " << endl;
+		cout << "Введите номер гостя: " << endl;
 		cin >> phone;
 		Guest* newGuest = new Guest(name, age, phone);
 		h1->addGuest(newGuest);
@@ -648,13 +648,13 @@ void menu() {
 		string title;
 		int beds;
 		int type;
-		cout << "Âûáåðèòå âèä êîìíàòû: \n 1 - Standart \n 2 - VIP \n 3 - Premium \n 4 - Lux" << endl;
+		cout << "Выберите вид комнаты: \n 1 - Standart \n 2 - VIP \n 3 - Premium \n 4 - Lux" << endl;
 		cin >> type;
-		cout << "Ââåäèòå íîìåð êîìíàòû: " << endl;
+		cout << "Введите номер комнаты: " << endl;
 		cin >> number;
-		cout << "Ââåäèòå íàçâàíèå êîìíàòû: " << endl;
+		cout << "Введите название комнаты: " << endl;
 		cin >> title;
-		cout << "Ââåäèòå êðîâàòè â êîìíàòå: " << endl;
+		cout << "Введите кровати в комнате: " << endl;
 		cin >> beds;
 		if (type == 1) {
 			StandartRoom* r1 = new StandartRoom(number, beds, title);
@@ -673,11 +673,11 @@ void menu() {
 			h1->addRoom(r1);
 		}
 		else {
-			cout << "íåïðàâèëüíî âûáðàíî äåéñòâèå" << endl;
+			cout << "неправильно выбрано действие" << endl;
 		}
 	}
 	else {
-		cout << "íåïðàâèëüíî âûáðàíî äåéñòâèå" << endl;
+		cout << "неправильно выбрано действие" << endl;
 	}
 }
 
